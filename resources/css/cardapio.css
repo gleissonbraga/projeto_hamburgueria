@@ -1,0 +1,221 @@
+#cardapio {
+    width: 100%;
+    height: auto;
+    /* min-height: 600px;
+    max-height: 100vh; */
+    background-color: #201f25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    flex-direction: column;
+}
+
+.cardapio-burguers {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ffffff65;
+}
+
+.cardapio-burguers__title {
+    width: 100%;
+    display: block;
+    color: #fff;
+    font-family: var(--font-amatic);
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    padding: 20px;
+}
+
+.cardapio-burguers-b {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+.cardapio-burguers__box {
+    width: 24%;
+    height: 250px;
+    display: flex;
+    background-image: url(img/shutterstock_1806472312.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cardapio-burguers__content {
+    display: none; 
+    width: 100%;
+    height: 100%;
+    background-color: #0000007d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.5s;
+}
+
+.cardapio-burguers__content h3, p, span{
+    width: 100%;
+    font-family: var(--font-amatic);
+    font-size: 1.5rem;
+}
+
+.cardapio-burguers__box:hover .cardapio-burguers__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    outline: 1px solid #ffffff88;
+}
+
+
+
+
+/* porcoes */
+
+.cardapio-porcoes {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+    border-bottom: 2px solid #ffffff65;
+}
+
+.cardapio-burguers__title {
+    width: 100%;
+    display: block;
+    color: #fff;
+    font-family: var(--font-amatic);
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.cardapio-porcoes-b {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+.cardapio-porcoes__box {
+    width: 24%;
+    height: 250px;
+    display: flex;
+    background-image: url(img/porcao.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+.cardapio-porcoes__content {
+    display: none; 
+    width: 100%;
+    height: 100%;
+    background-color: #0000007d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.5s;
+}
+
+.cardapio-porcoes__content h3, p, span{
+    width: 100%;
+    font-family: var(--font-amatic);
+    font-size: 1.5rem;
+}
+
+.cardapio-porcoes__box:hover .cardapio-porcoes__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    outline: 1px solid #ffffff88;
+}
+
+
+/* BEBIDAS */
+
+.cardapio-bebidas {
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+    border-bottom: 2px solid #ffffff65;
+}
+
+.cardapio-burguers__title {
+    width: 100%;
+    display: block;
+    color: #fff;
+    font-family: var(--font-amatic);
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+
+}
+
+.cardapio-bebidas-b {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    cursor: pointer;
+    /* background-color: red; */
+}
+
+.cardapio-bebidas__box {
+    width: 24%;
+    height: 250px;
+    display: flex;
+    background-image: url(img/bebida.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+.cardapio-bebidas__content {
+    display: none; 
+    width: 100%;
+    height: 100%;
+    background-color: #0000007d;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.5s;
+}
+
+.cardapio-bebidas__content h3, p, span{
+    width: 100%;
+    font-family: var(--font-amatic);
+    font-size: 1.5rem;
+}
+
+.cardapio-bebidas__box:hover .cardapio-bebidas__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    outline: 1px solid #ffffff88;
+}

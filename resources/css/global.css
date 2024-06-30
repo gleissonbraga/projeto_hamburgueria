@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #de484a;
+    --font-amatic: 'Amatic SC';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
