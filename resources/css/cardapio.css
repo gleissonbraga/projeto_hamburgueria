@@ -24,8 +24,8 @@
     display: block;
     color: #fff;
     font-family: var(--font-amatic);
-    font-size: 2rem;
-    font-weight: 900;
+    font-size: 2.5rem;
+    font-weight: 900;   
     text-align: center;
     padding: 20px;
 }
@@ -91,7 +91,7 @@
     border-bottom: 2px solid #ffffff65;
 }
 
-.cardapio-burguers__title {
+/* .cardapio-burguers .cardapio-burguers__title {
     width: 100%;
     display: block;
     color: #fff;
@@ -99,7 +99,7 @@
     font-size: 3rem;
     font-weight: 900;
     text-align: center;
-}
+} */
 
 .cardapio-porcoes-b {
     width: 100%;
@@ -161,7 +161,7 @@
     border-bottom: 2px solid #ffffff65;
 }
 
-.cardapio-burguers__title {
+/* .cardapio-burguers__title {
     width: 100%;
     display: block;
     color: #fff;
@@ -170,7 +170,7 @@
     font-weight: 900;
     text-align: center;
 
-}
+} */
 
 .cardapio-bebidas-b {
     width: 100%;
