@@ -24,10 +24,9 @@
                         unset($_SESSION['error_message']);
                     }
                 ?>
-                <!-- <p class="msg-erro">Email ou senha incorretos</p> -->
                 <input type="submit" value="Logar" name="logar" class="btn bn632-hover bn26">
             </form>
-            <a href="http://localhost:8080/texasBurguer/"><button class="bn632-hover bn25"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ir para o site</button></a>
+            <a href="http://localhost:8080/texasBurguer/" target="_blank"><button class="bn632-hover bn25"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ir para o site</button></a>
         </section>
         <section class="conteudo-fundo">
            

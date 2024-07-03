@@ -7,8 +7,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10px;
+    padding-bottom: 60px;
     flex-direction: column;
+
 }
 
 .cardapio-burguers {
@@ -46,7 +47,7 @@
     width: 24%;
     height: 250px;
     display: flex;
-    background-image: url(img/shutterstock_1806472312.jpg);
+    background-image: url(img/hamburguer.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

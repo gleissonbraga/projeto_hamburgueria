@@ -1,5 +1,7 @@
+
 <?php
 session_start();
+
 
 
 $server = "localhost";
@@ -23,10 +25,17 @@ function login($connect) {
                 session_start();
                 $_SESSION['nome'] = $result['nome'];
                 $_SESSION['active'] = true;
-                header("location: area_adm.php");
+                header("location: adm_inicio.php");
             } else {
                 $_SESSION['error_message'] = "Email ou senha incorretos";
             }
         }
     }
+}
+
+function logout(){
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: /texasBurguer/admin");
 }

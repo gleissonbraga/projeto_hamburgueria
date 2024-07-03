@@ -33,7 +33,7 @@
 </article>
 
 <article class="cardapio-porcoes">
-    <h2 class="cardapio-burguers__title">Porcoes</h2>
+    <h2 class="cardapio-burguers__title">Porções</h2>
     <div class="cardapio-porcoes-b">
         <div class="cardapio-porcoes__box">
             <div class="cardapio-porcoes__content">
