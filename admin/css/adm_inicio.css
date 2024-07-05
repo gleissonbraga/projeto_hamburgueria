@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.content {
+    width: 85%;
+    background-color: #000;
+
+}

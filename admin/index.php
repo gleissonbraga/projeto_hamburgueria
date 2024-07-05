@@ -24,6 +24,7 @@
                         unset($_SESSION['error_message']);
                     }
                 ?>
+                <!-- <a href="#" class="esqueci-senha">Esqueceu a senha?</a> -->
                 <input type="submit" value="Logar" name="logar" class="btn bn632-hover bn26">
             </form>
             <a href="http://localhost:8080/texasBurguer/" target="_blank"><button class="bn632-hover bn25"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ir para o site</button></a>

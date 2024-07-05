@@ -6,11 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/adm_inicio.css">
+    <!-- <link rel="stylesheet" href="css/adm_inicio.css"> -->
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/hamburguer.css">
-    <link rel="stylesheet" href="css/bebida.css">
-    <link rel="stylesheet" href="css/porcao.css">
+    <!-- <link rel="stylesheet" href="css/usuario.css"> -->
+    <!-- <link rel="stylesheet" href="css/hamburguer.css"> -->
+    <!-- <link rel="stylesheet" href="css/bebida.css"> -->
+    <!-- <link rel="stylesheet" href="css/porcao.css"> -->
     <link rel="stylesheet" href="css/unidades.css">
     <title>Área administrativa</title>
 </head>

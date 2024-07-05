@@ -33,6 +33,7 @@ function login($connect) {
     }
 }
 
+
 function logout(){
     session_start();
     session_unset();
