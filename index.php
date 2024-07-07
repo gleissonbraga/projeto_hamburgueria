@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,20 +21,20 @@
             <?php include "resources/layout/menu.php"?>
         </nav>
     </header>
-
+    
     <section id="destaque">
-            <?php include "resources/layout/destaque.php" ?>
+        <?php include "resources/layout/destaque.php" ?>
     </section>
     
     <section id="cardapio">
-            <?php include "resources/layout/cardapio.php" ?>
+        <?php include "resources/layout/cardapio.php" ?>
     </section>
-
+    
     <section class="footer">
-            <?php include "resources/layout/footer.php" ?>
+        <?php include "resources/layout/footer.php" ?>
     </section>
-
-
+    
+    
     <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
     <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
 </body>

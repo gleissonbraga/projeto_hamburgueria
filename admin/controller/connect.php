@@ -7,7 +7,7 @@ session_start();
 $server = "localhost";
 $user = "root";
 $pass = "";
-$dbName = "db_php"; // colocar nome do db
+$dbName = "hamburgueria_bd"; // colocar nome do db
 $connect = mysqli_connect($server, $user, $pass, $dbName);
 
 function login($connect) {
@@ -17,13 +17,14 @@ function login($connect) {
         $senha = sha1($_POST['senha']);
 
         if(!empty($email) and !empty($senha)) {
-            $query = "SELECT *FROM users WHERE email = '$email' AND senha = '$senha' ";
+            $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha' ";
 
             $action = mysqli_query($connect, $query);
             $result = mysqli_fetch_assoc($action);
             if(!empty($result)) {
                 session_start();
-                $_SESSION['nome'] = $result['nome'];
+                $_SESSION['nome'] = $result['nome_user'];
+                $_SESSION['avatar'] = $result['img_user'];
                 $_SESSION['active'] = true;
                 header("location: adm_inicio.php");
             } else {

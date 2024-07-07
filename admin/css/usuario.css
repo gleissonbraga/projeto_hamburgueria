@@ -1,10 +1,108 @@
-body {
+#container {
     display: flex;
     height: 100vh;
 }
 
 .content {
     width: 85%;
-    background-color: #f00404;
+    background-color: #fff;
+}
 
+.content-title {
+    width: 100%;
+    background-color: var(--color-menu);
+    height: 80px;
+    font-family: var(--font-roboto);
+    font-size: 1.8rem;
+    color: #f1f1f1;
+    text-shadow: 2px 2px 9px rgba(0,0,0,0.56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    border-left: none;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.content-link-cadastro {
+    margin-right: 20px;
+    height: 40px;
+    display: flex; 
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+
+.content-link-cadastro a {
+    display: inline-block;
+    padding: 0.5em 1.7em;
+    margin: 0 0.1em 0.1em 0;
+    border: 0.16em solid rgba(255, 255, 255, 0);
+    background-color: #190c8d;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-align: center;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.content-link-cadastro a:hover {
+    /* border: 2px solid #000; */
+    border-color: rgb(255, 255, 255);
+}
+
+.caixa-tabela {
+    width: 100%;
+    /* height: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.tabela {
+    width: 90%;
+    border: 1px solid #0000008b;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: var(--font-roboto);
+}
+
+.tabela-cabecalho tr th {
+    background-color: #000;
+    color: #f1f1f1;
+    
+}
+
+td, th {
+    text-align: center;
+    border: 2px solid #8c8c8cb8;
+    padding: 6px;
+}
+
+.tabela-body-editar {
+    text-align: center;
+    width: 60px;
+}
+
+
+.tabela-body-coluna__update {
+    text-decoration: none;
+    color: #2351e8;
+    border: none;
+    font-size: 20px;
+}
+
+
+.tabela-body-coluna__delete {
+    text-decoration: none;
+    color: #ca2525;
+    border: none;
+    font-size: 20px;
 }

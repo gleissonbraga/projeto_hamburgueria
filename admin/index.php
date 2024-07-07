@@ -19,7 +19,7 @@
                 <input type="email" name="email" id="email" placeholder="Email" require autofocus class="text">
                 <input type="password" name="senha" id="senha" placeholder="Senha" require class="text">
                 <?php
-                    if (isset($_SESSION['error_message'])) {
+                    if(isset($_SESSION['error_message'])) {
                         echo "<p class='msg-erro'>" . $_SESSION['error_message'] . "</p>";
                         unset($_SESSION['error_message']);
                     }

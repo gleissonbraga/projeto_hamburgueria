@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php require("controller/function.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,15 +7,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/adm_inicio.css">
     <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/hamburguer.css">
-    <link rel="stylesheet" href="css/bebida.css">
-    <link rel="stylesheet" href="css/porcao.css">
-    <link rel="stylesheet" href="css/unidades.css">
+    <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="css/form_cadastro.css">
     <title>Área administrativa</title>
 </head>
-<body>
+<body id="container">
     <?php if (isset($_SESSION['active'])) {?>
 
 
@@ -23,13 +21,18 @@
     </section>
     
     <section class="content">
-        <h2>Bem vindo!</h2>
-        <h3>Área administrativa do site Texas Burguer!</h3>
+        <h2>Cadastro de bebidas</h2>
+        <section>
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="text" name="nome" placeholder="Nome da bebida">
+                <input type="text" name="descricao" placeholder="Descrição">
+                <input type="text" name="preco" placeholder="Preço">
+                <input type="file" name="imagem">
+                <input type="submit" name="cadastrar">
+            </form>
+            <?php criarBebida(); ?>
+        </section>
     </section>
-    
-    
-    
-    
     <?php } else {
         header("location: index.php");
     } ?>

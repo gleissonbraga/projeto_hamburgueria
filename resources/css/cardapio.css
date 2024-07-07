@@ -1,18 +1,16 @@
+
 #cardapio {
     width: 100%;
     height: auto;
-    /* min-height: 600px;
-    max-height: 100vh; */
     background-color: #201f25;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 60px;
     flex-direction: column;
-
 }
 
-.cardapio-burguers {
+.cardapio-burguers, .cardapio-porcoes, .cardapio-bebidas {
     width: 80%;
     height: auto;
     display: flex;
@@ -26,12 +24,12 @@
     color: #fff;
     font-family: var(--font-amatic);
     font-size: 2.5rem;
-    font-weight: 900;   
+    font-weight: 900;
     text-align: center;
     padding: 20px;
 }
 
-.cardapio-burguers-b {
+.cardapio-burguers-b, .cardapio-porcoes-b, .cardapio-bebidas-b {
     width: 100%;
     height: auto;
     display: flex;
@@ -40,21 +38,28 @@
     justify-content: center;
     padding: 20px 0;
     cursor: pointer;
-    /* background-color: red; */
 }
 
-.cardapio-burguers__box {
+.cardapio-burguers__box, .cardapio-porcoes__box, .cardapio-bebidas__box {
     width: 24%;
     height: 250px;
     display: flex;
-    background-image: url(img/hamburguer.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    position: relative;
+    overflow: hidden;
 }
 
-.cardapio-burguers__content {
-    display: none; 
+.cardapio-burguers__box img, .cardapio-porcoes__box img, .cardapio-bebidas__box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.cardapio-burguers__content, .cardapio-porcoes__content, .cardapio-bebidas__content {
+    display: none;
     width: 100%;
     height: 100%;
     background-color: #0000007d;
@@ -62,161 +67,25 @@
     text-align: center;
     padding: 10px;
     transition: transform 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
-.cardapio-burguers__content h3, p, span{
+.cardapio-burguers__content h3, .cardapio-porcoes__content h3, .cardapio-bebidas__content h3,
+.cardapio-burguers__content p, .cardapio-porcoes__content p, .cardapio-bebidas__content p,
+.cardapio-burguers__content span, .cardapio-porcoes__content span, .cardapio-bebidas__content span {
     width: 100%;
     font-family: var(--font-amatic);
     font-size: 1.5rem;
 }
 
-.cardapio-burguers__box:hover .cardapio-burguers__content{
+.cardapio-burguers__box:hover .cardapio-burguers__content,
+.cardapio-porcoes__box:hover .cardapio-porcoes__content,
+.cardapio-bebidas__box:hover .cardapio-bebidas__content {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    outline: 1px solid #ffffff88;
-}
-
-
-
-
-/* porcoes */
-
-.cardapio-porcoes {
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    /* background-color: blue; */
-    border-bottom: 2px solid #ffffff65;
-}
-
-/* .cardapio-burguers .cardapio-burguers__title {
-    width: 100%;
-    display: block;
-    color: #fff;
-    font-family: var(--font-amatic);
-    font-size: 3rem;
-    font-weight: 900;
-    text-align: center;
-} */
-
-.cardapio-porcoes-b {
-    width: 100%;
-    height: auto;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px 0;
-    cursor: pointer;
-    /* background-color: red; */
-}
-
-.cardapio-porcoes__box {
-    width: 24%;
-    height: 250px;
-    display: flex;
-    background-image: url(img/porcao.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-}
-
-.cardapio-porcoes__content {
-    display: none; 
-    width: 100%;
-    height: 100%;
-    background-color: #0000007d;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.5s;
-}
-
-.cardapio-porcoes__content h3, p, span{
-    width: 100%;
-    font-family: var(--font-amatic);
-    font-size: 1.5rem;
-}
-
-.cardapio-porcoes__box:hover .cardapio-porcoes__content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    outline: 1px solid #ffffff88;
-}
-
-
-/* BEBIDAS */
-
-.cardapio-bebidas {
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    /* background-color: blue; */
-    border-bottom: 2px solid #ffffff65;
-}
-
-/* .cardapio-burguers__title {
-    width: 100%;
-    display: block;
-    color: #fff;
-    font-family: var(--font-amatic);
-    font-size: 2rem;
-    font-weight: 900;
-    text-align: center;
-
-} */
-
-.cardapio-bebidas-b {
-    width: 100%;
-    height: auto;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px 0;
-    cursor: pointer;
-    /* background-color: red; */
-}
-
-.cardapio-bebidas__box {
-    width: 24%;
-    height: 250px;
-    display: flex;
-    background-image: url(img/bebida.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-}
-
-.cardapio-bebidas__content {
-    display: none; 
-    width: 100%;
-    height: 100%;
-    background-color: #0000007d;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    transition: transform 0.5s;
-}
-
-.cardapio-bebidas__content h3, p, span{
-    width: 100%;
-    font-family: var(--font-amatic);
-    font-size: 1.5rem;
-}
-
-.cardapio-bebidas__box:hover .cardapio-bebidas__content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    outline: 1px solid #ffffff88;
 }
