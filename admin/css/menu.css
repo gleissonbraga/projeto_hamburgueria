@@ -1,12 +1,12 @@
 .menu {
     width: 15%;
-    background-color: var(--color-menu);
+    /* background-color: var(--color-menu); */
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    color: #fff;
-    border: 2px solid #000;
+    color: #000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -34,7 +34,7 @@
     font-size: 1.3rem;
     padding: 5px;
     border-radius: 5px;
-    background-color: #38669a;
+    background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -58,7 +58,7 @@
 .menu-adm-container li {
     width: 100%;
     list-style-type: none;
-    padding: 5px 0;
+    margin-bottom: 2px;
 }
 
 .menu-adm-container li a {
@@ -67,9 +67,10 @@
     text-decoration: none;
     font-size: 1.1rem;
     text-transform: uppercase;
-    color: #f2fcff;
+    color: #dcdcdc;
+    font-weight: 400;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-left: 30px;
+    padding: 2px 2px 2px 30px;
     gap: 4px;
     /* border-top: 2px solid #646464d3;
     border-bottom: 2px solid #646464d3; */
@@ -77,11 +78,12 @@
 
 .menu-adm-container li:hover {
     background-color: #64646444;
-    outline: 2px solid #f2fcff76;
+    color: #1da8ff;
+    /* outline: 2px solid #f2fcff76; */
 }
 
-.menu-adm-container li:active {
-    background-color: #64646444;
+.menu-adm-container li a:hover {
+    color: #1da8ff;
 }
 
 
@@ -109,7 +111,7 @@
 .menu-site-container .menu-site {
     width: 100%;
     text-decoration: none;
-    color: #f2fcff;
+    color: #dcdcdc;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     gap: 4px;
@@ -117,13 +119,18 @@
     font-size: 1.1rem;
     align-items: center;
     padding: 5px;
+    
+}
+
+.menu-site-container .menu-site:hover {
+    color: #1da8ff;
 }
 
 
 .menu-site-container .menu-logout {
     width: 100%;
     text-decoration: none;
-    color: #c32a2aac;
+    color: #fe0000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
 

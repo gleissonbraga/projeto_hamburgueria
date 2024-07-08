@@ -5,23 +5,19 @@
 
 .content {
     width: 85%;
-    background-color: #fff;
+    background-color: #e1e1e1;
 }
 
 .content-title {
     width: 100%;
-    background-color: var(--color-menu);
+    background-color: #ffffff;
     height: 80px;
     font-family: var(--font-roboto);
     font-size: 1.8rem;
-    color: #f1f1f1;
-    text-shadow: 2px 2px 9px rgba(0,0,0,0.56);
+    color: #dcdcdc;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #000;
-    border-left: none;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .content-link-cadastro {
@@ -105,4 +101,26 @@ td, th {
     color: #ca2525;
     border: none;
     font-size: 20px;
+}
+
+.teste {
+    width: 50%;
+    height: 100px;
+}
+
+.teste .teste2 {
+    height: 30px;
+    background-color: #ca25256a;
+    margin-left: 15px;
+    margin: -20px;
+}
+
+.teste3 {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    background-color: #190c8d66;
+    height: 50px;
+
 }
