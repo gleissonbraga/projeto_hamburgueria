@@ -23,14 +23,14 @@
         <h2 class="content-title">Cadastre, exclua ou altere um usuário</h2>
         <div class="content-link-cadastro"><a href="criar_usuario.php">Cadastrar usuário</a></div>
 
-        <div class="teste">
+        <!-- <div class="teste">
             <div class="teste2">
 
                 <div class="teste3">
             </div>
 
             </div>
-        </div>
+        </div> -->
     
         <div class="caixa-tabela">
             <table class="tabela">
@@ -40,7 +40,7 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Ingredientes</th>
-                        <th>Preço</th>
+                        <th>Data de cadastro</th>
                         <th>Editar</th>
                     </tr>
                 </thead>
@@ -48,7 +48,9 @@
                     <?php foreach($users as $user): ?>
                         <tr class="tabela-body-coluna">
                             <?php if(!empty($user['img_user'])){ ?>
-                                <td><img width="100px" src="controller/uploads/<?php echo $user['img_user']; ?>" alt=""></td>
+                                <td><img width="80px" src="controller/uploads/<?php echo $user['img_user']; ?>" alt=""></td>
+                            <?php } else {?>
+                                <td><img width="80px" src="css/img/avtar.png" alt=""></td>
                             <?php } ?>
                             <td><?php echo $user['id'] ?></td>
                             <td><?php echo $user['nome_user'] ?></td>

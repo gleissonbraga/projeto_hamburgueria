@@ -39,6 +39,8 @@
                         <tr class="tabela-body-coluna">
                             <?php if(!empty($bebida['foto_bebida'])){ ?>
                                 <td><img width="80px" src="controller/uploads/<?php echo $bebida['foto_bebida']; ?>" alt=""></td>
+                            <?php } else {?>
+                                <td><img width="px" src="css/img/avtar.png" alt=""></td>
                             <?php } ?>
                             <td><?php echo $bebida['id'] ?></td>
                             <td><?php echo $bebida['nome_bebida'] ?></td>

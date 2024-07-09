@@ -40,6 +40,8 @@
                         <tr class="tabela-body-coluna">
                             <?php if(!empty($hamburguer['foto_hamburguer'])){ ?>
                                 <td><img width="80px" src="controller/uploads/<?php echo $hamburguer['foto_hamburguer']; ?>" alt=""></td>
+                            <?php } else {?>
+                                <td><img width="80px" src="css/img/avtar.png" alt=""></td>
                             <?php } ?>
                             <td><?php echo $hamburguer['id'] ?></td>
                             <td><?php echo $hamburguer['nome_hamburguer'] ?></td>

@@ -39,6 +39,8 @@
                         <tr class="tabela-body-coluna">
                             <?php if(!empty($porcao['foto_porcao'])){ ?>
                                 <td><img width="80px" src="controller/uploads/<?php echo $porcao['foto_porcao']; ?>" alt=""></td>
+                            <?php } else {?>
+                                <td><img width="80px" src="css/img/avtar.png" alt=""></td>
                             <?php } ?>
                             <td><?php echo $porcao['id'] ?></td>
                             <td><?php echo $porcao['nome_porcao'] ?></td>

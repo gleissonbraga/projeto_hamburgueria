@@ -1,4 +1,5 @@
 <?php session_start() ?>
+<?php require("admin/controller/function.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

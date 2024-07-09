@@ -42,6 +42,8 @@
                         <tr class="tabela-body-coluna">
                             <?php if(!empty($unidade['foto_unidade'])){ ?>
                                 <td><img width="80px" src="controller/uploads/<?php echo $unidade['foto_unidade']; ?>" alt=""></td>
+                            <?php } else {?>
+                                <td><img width="100px" src="css/img/avtar.png" alt=""></td>
                             <?php } ?>
                             <td><?php echo $unidade['id'] ?></td>
                             <td><?php echo $unidade['nome_unidade'] ?></td>
