@@ -36,68 +36,20 @@ function login($connect) {
 
 
 
-
-// testes
-
 function buscarUnidadePorId($connect) {
-    if(isset($_POST['buscar_unidade'])) {
+    if(isset($_POST['buscar_unidade']) && !empty($_POST['user'])){
         $id = $_POST['user'];
-
-        if(!empty($id)) {
-            // Consulta SQL com consulta preparada
-            $query = "SELECT * FROM unidades WHERE id = ?";
-            $stmt = mysqli_prepare($connect, $query);
-            
-            // Vincula o parâmetro $id à consulta preparada
-            mysqli_stmt_bind_param($stmt, "i", $id);
-            
-            // Executa a consulta
-            mysqli_stmt_execute($stmt);
-            
-            // Obtém o resultado da consulta
-            $result = mysqli_stmt_get_result($stmt);
-            
-            // Verifica se há resultados e recupera os dados
-            if(mysqli_num_rows($result) > 0) {
-                $unidade = mysqli_fetch_assoc($result);
-                
-                // Atribui os valores diretamente às variáveis
-                $nome = $unidade['nome_unidade'];
-                $endereco = $unidade['endereco_unidade'];
-                $cidade = $unidade['cidade'];
-                $uf = $unidade['uf'];
-                $telefone = $unidade['contato_unidade'];
-                $hora_abertura = $unidade['hora_abertura'];
-                $hora_fechamento = $unidade['hora_fechamento'];
-                $foto_unidade = $unidade['foto_unidade'];
-                
-                // Retorna os dados diretamente (sem array)
-                return array(
-                    'nome' => $nome,
-                    'endereco' => $endereco,
-                    'cidade' => $cidade,
-                    'uf' => $uf,
-                    'telefone' => $telefone,
-                    'hora_abertura' => $hora_abertura,
-                    'hora_fechamento' => $hora_fechamento,
-                    'foto_unidade' => $foto_unidade
-                );
-            } else {
-                echo "Nenhuma unidade encontrada com o ID: $id";
-            }
-            
-            // Fecha a consulta preparada
-            mysqli_stmt_close($stmt);
+        $query = "SELECT * FROM unidades WHERE id = $id";
+        $result = mysqli_query($connect, $query);
+        
+        if ($result && mysqli_num_rows($result) > 0) {
+            $testes =  mysqli_fetch_assoc($result);
+        } else {
+            echo "teste";
         }
     }
-
-    // Retorna null se não encontrar a unidade
-    return null;
+    return $testes;
 }
-
-
-
-
 
 
 

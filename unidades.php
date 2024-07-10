@@ -22,29 +22,54 @@
         </nav>
     </header>
 
-
     <section class="conteudo-unidades">
-        <form action="" method="post">
+        
+    </section>
+
+    <section class="conteudo">
+        <form action="" method="post" class="conteudo-form">
             <select name="user" id="" aria-placeholder="Selecione uma unidade">
                 <option value="">Selecione a unidade</option>
-                <?php foreach($unidades as $unidade): ?>
-                    <?php $id_unidade = $unidade['id']; ?>
-                    <?php $nome = $unidade['nome_unidade']; ?>
-                    <?php $selected = $id_unidade === $unidade['id'] ? 'selected' : ""?>
-                    <?php echo "<option value='{$id_unidade}' $selected>{$nome}</option>"; ?>
-                <?php endforeach ?>
+
+                    <?php foreach($unidades as $unidade): ?>
+                        <?php $id_unidade = $unidade['id']; ?>
+                        <?php $nome = $unidade['nome_unidade']; ?>
+                        <?php $selected = $id_unidade == $id ? 'selected' : '';?>
+                        <?php echo "<option value='{$id_unidade}' $selected>{$nome}</option>"; ?>
+                    <?php endforeach ?>
+
             </select>
-            <input type="submit" name="buscar_unidade" value="Buscar unidade">
+            <input type="submit" name="buscar_unidade" value="Buscar">
         </form>
-            <div>
-                <?php echo buscarUnidadePorId($connect)['nome']?>
-                <?php echo buscarUnidadePorId($connect)['endereco']?>
-                <?php echo buscarUnidadePorId($connect)['uf']?>
-                
+            <div class="conteudo-infos">
+            <?php if(!isset($_POST['buscar_unidade'])){ ?>
+                <?= "<h2 class='conteudo-infos__title'>Bem vindo!</h2>" ?>
+                <?= "<h3 class='conteudo-infos__title'>Busque uma unidade que deseja conhecer.</h3>" ?>
+            <?php } else { ?>
+                <?php $testes[] = buscarUnidadePorId($connect);?> 
+                <?php foreach($testes as $teste): ?>
+                    <?php if(!empty($teste['foto_hamburguer'])){ ?>
+                        <img width="80px" src="admin/controller/uploads/<?php echo $teste['foto_unidade']; ?>" alt="">
+                    <?php } else { ?>
+                        <img width="80px" src="resources/css/img/hamburguer.jpg" alt="">
+                    <?php }?>
+                    <?= $teste['nome_unidade'] ?>
+                    <?= $teste['endereco_unidade'] ?>
+                    <?= $teste['cidade'] ?>
+                    <?= $teste['uf'] ?>
+                    <?= $teste['contato_unidade'] ?>
+                    <?= $teste['hora_abertura'] ?>
+                    <?= $teste['hora_fechamento'] ?>
+                <?php endforeach ?>
+            <?php } ?>
             </div>
     </section>
         
 
+    <section class="back-radius">
+
+
+    </section>
 
     <section class="footer">
             <?php include "resources/layout/footer.php" ?>

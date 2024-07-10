@@ -1,8 +1,11 @@
+body {
+    background-color: #d2d2d28c;
+}
+
 .conteudo-unidades {
     position: relative;
     width: 100%;
-    height: 500px;
-    min-height: 591px;
+    height: 150px;
     max-height: 100vh;
     /* background-image: url(img/banner.webp); */
     /* background-size: cover;
@@ -13,4 +16,54 @@
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #ffffff;
+    border-radius: 0% 0% 70% 70% / 0% 0% 24% 24%; 
+    background-color: #000;
+}
+
+.conteudo {
+    width: 100%;
+    height: 361px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.conteudo-form {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.conteudo-form select {
+    width: 15%;
+}
+
+.conteudo-form input {
+    width: 10%;
+    margin-left: 22px;
+}
+
+.conteudo-infos {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.conteudo-infos__title {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.back-radius {
+    width: 100%;
+    height: 80px;
+    max-height: 100vh;
+    background-color: #000;
+    border-radius: 70% 70% 0% 0% / 24% 24% 0% 0%;
 }
