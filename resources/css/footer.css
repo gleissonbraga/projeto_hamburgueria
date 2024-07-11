@@ -1,6 +1,5 @@
 .footer {
     width: 100%;
-    height: 100px;
     background-image: url(img/bg-body.jpg);
     background-repeat: repeat;
     background-position: center;
@@ -8,7 +7,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 15px 0;
+    padding: 15px 0 0 0;
 }
 
 .footer .social {
@@ -27,9 +26,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-direction: column; */
     gap: 10px;
     flex-grow: 1;
+    padding-left: 0;
 }
 
 .footer .social-content li {
@@ -53,7 +52,6 @@
     justify-content: center;
     flex-direction: column;
     flex-grow: 1;
-
 }
 
 .footer .funcionamento p {
@@ -65,7 +63,6 @@
 
 .copy {
     width: 100%;
-    height: 20px;
     background-color: #de484a;
     color: #fff;
     text-align: center;

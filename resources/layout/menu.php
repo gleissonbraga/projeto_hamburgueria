@@ -30,5 +30,5 @@
             Contato
         </a>
     </li>
-    <?php include("admin/layout/teste.php") ?>
+    <?php include("admin/layout/logout_main.php") ?>
 </ul>

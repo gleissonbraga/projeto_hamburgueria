@@ -42,25 +42,37 @@
             <input type="submit" name="buscar_unidade" value="Buscar">
         </form>
             <div class="conteudo-infos">
-            <?php if(!isset($_POST['buscar_unidade'])){ ?>
+            <?php if(!isset($_POST['buscar_unidade']) or $_POST['user'] == null){ ?>
                 <?= "<h2 class='conteudo-infos__title'>Bem vindo!</h2>" ?>
                 <?= "<h3 class='conteudo-infos__title'>Busque uma unidade que deseja conhecer.</h3>" ?>
             <?php } else { ?>
-                <?php $testes[] = buscarUnidadePorId($connect);?> 
-                <?php foreach($testes as $teste): ?>
-                    <?php if(!empty($teste['foto_hamburguer'])){ ?>
-                        <img width="80px" src="admin/controller/uploads/<?php echo $teste['foto_unidade']; ?>" alt="">
-                    <?php } else { ?>
-                        <img width="80px" src="resources/css/img/hamburguer.jpg" alt="">
-                    <?php }?>
-                    <?= $teste['nome_unidade'] ?>
-                    <?= $teste['endereco_unidade'] ?>
-                    <?= $teste['cidade'] ?>
-                    <?= $teste['uf'] ?>
-                    <?= $teste['contato_unidade'] ?>
-                    <?= $teste['hora_abertura'] ?>
-                    <?= $teste['hora_fechamento'] ?>
-                <?php endforeach ?>
+                <div class="conteudo-dados">
+                    <?php $unidades_selects[] = buscarUnidadePorId($connect);?> 
+                    <?php foreach($unidades_selects as $unidade_select): ?>
+                        <div class="conteudo-dados__img">
+                            <?php if(!empty($unidade_select['foto_hamburguer'])){ ?>
+                                <img src="admin/controller/uploads/<?php echo $unidade_select['foto_unidade']; ?>" alt="">
+                            <?php } else { ?>
+                                <img src="resources/css/img/hamburguer.jpg" alt="">
+                            <?php }?>
+                        </div>
+                        <div class="conteudo-dados__unidade">
+                        <?=  "<h3>{$unidade_select['nome_unidade']}</h3>"?>
+                        <?=  "<p> <span><ion-icon name='location'></ion-icon>Endereço: </span> {$unidade_select['endereco_unidade']} - {$unidade_select['cidade']}/{$unidade_select['uf']}</p>"?>
+                        <?=  "<p><span><ion-icon name='call'></ion-icon>Telefone: </span> {$unidade_select['contato_unidade']}</p>"?>
+                            <div class="conteudo-dados__horaFunc">
+                                <span>Horário de funcionamento:</span>
+                                <?= "<p><span class='conteudo-dados_span'>Segunda-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Terça-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Quarta-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Quinta-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Sexta-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Sábado-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                                <?= "<p><span class='conteudo-dados_span'>Domingo-feira: </span> {$unidade_select['hora_abertura']} - {$unidade_select['hora_fechamento']}</p>" ?>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>                   
             <?php } ?>
             </div>
     </section>
