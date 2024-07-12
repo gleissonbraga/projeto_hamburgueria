@@ -1,3 +1,5 @@
+<?php session_start() ?>
+<?php require("admin/model/function.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

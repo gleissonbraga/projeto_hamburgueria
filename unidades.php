@@ -1,5 +1,5 @@
-<?php require("admin/controller/function.php");?>
-<?php require("admin/controller/connect.php");?>
+<?php require("admin/model/function.php");?>
+<?php require("admin/model/connect.php");?>
 <?php $unidades = dadosDasTabelas("unidades", "nome_unidade"); ?> 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,8 +50,8 @@
                     <?php $unidades_selects[] = buscarUnidadePorId($connect);?> 
                     <?php foreach($unidades_selects as $unidade_select): ?>
                         <div class="conteudo-dados__img">
-                            <?php if(!empty($unidade_select['foto_hamburguer'])){ ?>
-                                <img src="admin/controller/uploads/<?php echo $unidade_select['foto_unidade']; ?>" alt="">
+                            <?php if(empty($unidade_select['foto_hamburguer'])){ ?>
+                                <img src="admin/model/uploads/<?php echo $unidade_select['foto_unidade']; ?>" alt="">
                             <?php } else { ?>
                                 <img src="resources/css/img/hamburguer.jpg" alt="">
                             <?php }?>

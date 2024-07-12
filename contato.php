@@ -1,3 +1,5 @@
+<?php session_start() ?>
+<?php require("admin/model/function.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +21,7 @@
     </header>
 
     <section class="footer">
-            <?php include "resources/layout/footer.php" ?>
+            <?php include "resources/layout/footer.php"?>
     </section>
 
     <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 

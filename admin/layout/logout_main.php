@@ -3,6 +3,6 @@
     <a href="admin/adm_inicio.php"><ion-icon name="cog"></ion-icon>Área Adm</a>
 </li>
 <li>
-    <a href="admin/controller/logout.php"><ion-icon name="exit-outline"></ion-icon>Sair</a>
+    <a href="admin/model/logout.php"><ion-icon name="exit-outline"></ion-icon>Sair</a>
 </li>
 <?php endif ?>

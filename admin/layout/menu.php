@@ -3,7 +3,7 @@
         <?php if(empty($_SESSION['avatar'] )){ ?>
             <img src="css/img/avtar.png" alt="" class="conteudo-avatar__img">
         <?php } else {?>
-            <img src="controller/uploads/<?php echo $_SESSION['avatar']?>" alt="" class="conteudo-avatar__img">
+            <img src="model/uploads/<?php echo $_SESSION['avatar']?>" alt="" class="conteudo-avatar__img">
         <?php }?>
     </div>
     <h2 class="menu-user__title"><?= $_SESSION['nome']?></h2>
@@ -23,7 +23,7 @@
 <nav class="menu-site">
     <ul class="menu-site-container">
         <li><a href="http://localhost:8080/texasBurguer/" target="_blank" class="menu-site"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ver Site</a></li>
-        <li><a href="controller/logout.php" class="menu-logout"><ion-icon name="exit-outline"></ion-icon>Sair</a></li>
+        <li><a href="model/logout.php" class="menu-logout"><ion-icon name="exit-outline"></ion-icon>Sair</a></li>
     </ul>
 </nav>
 

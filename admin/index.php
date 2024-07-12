@@ -1,4 +1,4 @@
-<?php require_once("controller/connect.php");?>
+<?php require_once("model/connect.php");?>
 
 <!DOCTYPE html>
 <html lang="en">

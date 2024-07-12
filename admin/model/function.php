@@ -31,7 +31,7 @@ function criarUsuario() {
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
 
         if(!empty($imagem)) {
-            $caminho = "controller/uploads/";
+            $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
         }
 
@@ -63,7 +63,7 @@ function criarHamburguer() {
         $preco = mysqli_real_escape_string($connect, $_POST['preco']);
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
         if(!empty($imagem)) {
-            $caminho = "controller/uploads/";
+            $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
         }
 
@@ -96,7 +96,7 @@ function criarPorcao() {
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
 
         if(!empty($imagem)) {
-            $caminho = "controller/uploads/";
+            $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
         }
 
@@ -129,7 +129,7 @@ function criarBebida() {
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
 
         if(!empty($imagem)) {
-            $caminho = "controller/uploads/";
+            $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
         }
 
@@ -166,7 +166,7 @@ function criarUnidade() {
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
 
         if(!empty($imagem)) {
-            $caminho = "controller/uploads/";
+            $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
         }
 

@@ -1,5 +1,7 @@
-<?php session_start(); ?>
-<?php require("controller/function.php"); ?>
+<?php session_start();?>
+<?php include("model/function.php"); ?>
+<?php include("model/connect.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +31,29 @@
                 </div>
                 <div class="div3">
                     <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar usuário</a></div>
+                    <div class="delete-usuario">
+                        <?php if(isset($_GET['id'])):?>
+                            <h3>Gostaria de deletar o usuário: <?= $_GET['nome']; ?></h3>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                <input type="submit" name="delete" value="Sim">
+                                <input type="submit" name="nao_deletar" value="Não">
+                            </form>
+                        <?php endif ?>
+
+                        <?php if(isset($_POST['delete'])){ ?>
+                            <?php 
+                                if($_SESSION['id'] != $_POST['id']) {
+                                    delete($connect, "usuarios", $_POST['id']);
+                                } else {
+                                    echo "Você não pode exclui seu próprio usuário";
+                                }
+                            ?>
+                        <?php } elseif (isset($_POST['nao_deletar'])) { ?>
+                            <?php header("location: usuario.php"); ?>
+                        <?php } ?>
+                    </div>
+
                     <div class="caixa-tabela">
                         <table class="tabela  table table-bordered table-striped table-hover">
                             <thead class="tabela-cabecalho">
@@ -38,24 +63,24 @@
                                     <th>Nome</th>
                                     <th>Ingredientes</th>
                                     <th>Data de cadastro</th>
-                                    <th>Editar</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody class="tabela-body">
                                 <?php foreach ($users as $user) : ?>
                                     <tr class="tabela-body-coluna">
                                         <?php if (!empty($user['img_user'])) { ?>
-                                            <td><img width="80px" src="controller/uploads/<?php echo $user['img_user']; ?>" alt=""></td>
+                                            <td class="text-center"><img width="80px" src="model/uploads/<?php echo $user['img_user']; ?>" alt=""></td>
                                         <?php } else { ?>
-                                            <td><img width="80px" src="css/img/avtar.png" alt=""></td>
+                                            <td class="text-center"><img width="80px" src="css/img/avtar.png" alt=""></td>
                                         <?php } ?>
-                                        <td class="align-middle "><?php echo $user['id'] ?></td>
-                                        <td class="align-middle"><?php echo $user['nome_user'] ?></td>
-                                        <td class="align-middle"><?php echo $user['email'] ?></td>
-                                        <td class="align-middle"><?php echo $user['data_usuario'] ?></td>
-                                        <td class="tabela-body-editar align-middle">
-                                            <a href="#" target="_blank" class="tabela-body-coluna__update d-flex justify-content-center"><ion-icon name="sync-circle"></ion-icon></a>
-                                            <a href="#" target="_blank" class="tabela-body-coluna__delete d-flex justify-content-center"><ion-icon name="trash"></ion-icon></a>
+                                        <td class="align-middle text-center"><?php echo $user['id'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $user['nome_user'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $user['email'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $user['data_usuario'] ?></td>
+                                        <td class="tabela-body-editar align-middle text-center">
+                                            <a href="update_usuario.php?id=<?php echo $user['id']; ?>&nome=<?php echo $user['nome_user']; ?>" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="usuario.php?id=<?php echo $user['id']; ?>&nome=<?php echo $user['nome_user']; ?>" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

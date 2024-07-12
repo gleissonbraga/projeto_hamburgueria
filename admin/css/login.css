@@ -43,6 +43,10 @@
     margin-top: 10px;
 }
 
+.form input {
+  background-color: #000000dc;
+}
+
 .form .text {
     width: 80%;
     height: 40px;
@@ -58,6 +62,10 @@
 .form .text:focus {
     outline: none;
     border-bottom: 3px solid #1d5af3;
+}
+
+input:-internal-autofill-selected {
+  background-color: #000000;
 }
 
 /*Botão de logar*/

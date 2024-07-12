@@ -5,7 +5,7 @@
         <?php foreach($hamburguers as $hamburguer): ?>
         <div class="cardapio-burguers__box">
             <?php if(!empty($hamburguer['foto_hamburguer'])){ ?>
-                <img src="admin/controller/uploads/<?php echo $hamburguer['foto_hamburguer']; ?>" alt="">
+                <img src="admin/model/uploads/<?php echo $hamburguer['foto_hamburguer']; ?>" alt="">
             <?php } else { ?>
                 <img src="resources/css/img/hamburguer.jpg" alt="">
             <?php }?>
@@ -26,7 +26,7 @@
         <?php foreach($porcoes as $porcao): ?>
         <div class="cardapio-porcoes__box">
             <?php if(!empty($porcao['foto_porcao'])){ ?>
-                <img src="admin/controller/uploads/<?php echo $porcao['foto_porcao']; ?>" alt="">
+                <img src="admin/model/uploads/<?php echo $porcao['foto_porcao']; ?>" alt="">
             <?php } else { ?>
                 <img src="resources/css/img/porcao.jpg" alt="">
             <?php }?>
@@ -47,7 +47,7 @@
         <?php foreach($bebidas as $bebida): ?>
         <div class="cardapio-bebidas__box">
             <?php if(!empty($bebida['foto_bebida'])){ ?>
-                <img src="admin/controller/uploads/<?php echo $bebida['foto_bebida']; ?>" alt="">
+                <img src="admin/model/uploads/<?php echo $bebida['foto_bebida']; ?>" alt="">
             <?php } else { ?>
                 <img src="resources/css/img/bebida.jpg" alt="">
             <?php }?>

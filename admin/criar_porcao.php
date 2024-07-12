@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php require("controller/function.php");?>
+<?php require("model/function.php");?>
 
 <!DOCTYPE html>
 <html lang="en">

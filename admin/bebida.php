@@ -1,5 +1,6 @@
 <?php session_start(); ?>
-<?php require("controller/function.php"); ?>
+<?php require("model/function.php"); ?>
+<?php require("model/connect.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,24 @@
                     <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Cadastre, exclua ou altere uma bebida</h2>
                 </div>
                 <div class="div3">
-                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar usuário</a></div>
+                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar bebida</a></div>
+                    <div class="delete-usuario">
+                        <?php if(isset($_GET['id'])):?>
+                            <h3>Gostaria de deletar a bebida: <?= $_GET['nome']; ?></h3>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                <input type="submit" name="delete" value="Sim">
+                                <input type="submit" name="nao_deletar" value="Não">
+                            </form>
+                        <?php endif ?>
+                        <?php if(isset($_POST['delete'])){ ?>
+                            <?php 
+                                delete($connect, "bebida", $_POST['id']);
+                            ?>
+                        <?php } elseif (isset($_POST['nao_deletar'])) { ?>
+                            <?php header("location: bebida.php"); ?>
+                        <?php } ?>
+                    </div>
                     <div class="caixa-tabela">
                         <table class="tabela table table-bordered table-striped table-hover">
                             <thead class="tabela-cabecalho">
@@ -45,17 +63,17 @@
                                 <?php foreach ($bebidas as $bebida) : ?>
                                     <tr class="tabela-body-coluna">
                                         <?php if (!empty($bebida['foto_bebida'])) { ?>
-                                            <td><img width="80px" src="controller/uploads/<?php echo $bebida['foto_bebida']; ?>" alt=""></td>
+                                            <td class="text-center"><img width="80px" src="model/uploads/<?php echo $bebida['foto_bebida']; ?>" alt=""></td>
                                         <?php } else { ?>
-                                            <td><img width="px" src="css/img/avtar.png" alt=""></td>
+                                            <td class="text-center"><img width="px" src="css/img/avtar.png" alt=""></td>
                                         <?php } ?>
-                                        <td><?php echo $bebida['id'] ?></td>
-                                        <td><?php echo $bebida['nome_bebida'] ?></td>
-                                        <td><?php echo $bebida['descricao_bebida'] ?></td>
-                                        <td><?php echo "R$ " . $bebida['preco_bebida'] ?></td>
-                                        <td class="tabela-body-editar">
-                                            <a href="#" target="_blank" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
-                                            <a href="#" target="_blank" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
+                                        <td class="align-middle text-center"><?php echo $bebida['id'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $bebida['nome_bebida'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $bebida['descricao_bebida'] ?></td>
+                                        <td class="align-middle text-center"><?php echo "R$ " . $bebida['preco_bebida'] ?></td>
+                                        <td class="tabela-body-editar text-center align-middle">
+                                            <a href="#" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="bebida.php?id=<?php echo $bebida['id']; ?>&nome=<?php echo $bebida['nome_bebida']; ?>"  class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

@@ -1,5 +1,6 @@
 <?php session_start(); ?>
-<?php require("controller/function.php"); ?>
+<?php require("model/function.php"); ?>
+<?php require("model/connect.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,25 @@
                     <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Cadastre, exclua ou altere um unidade</h2>
                 </div>
                 <div class="div3">
-                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar usuário</a></div>
+                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar unidade</a></div>
+                    <div class="delete-usuario">
+                        <?php if(isset($_GET['id'])):?>
+                            <h3>Gostaria de deletar a unidade: <?= $_GET['nome']; ?></h3>
+                            <form action="" method="post">
+                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                <input type="submit" name="delete" value="Sim">
+                                <input type="submit" name="nao_deletar" value="Não">
+                            </form>
+                        <?php endif ?>
+
+                        <?php if(isset($_POST['delete'])){ ?>
+                            <?php 
+                                delete($connect, "unidades", $_POST['id']);
+                            ?>
+                        <?php } elseif (isset($_POST['nao_deletar'])) { ?>
+                            <?php header("location: unidades.php"); ?>
+                        <?php } ?>
+                    </div>
                     <div class="caixa-tabela">
                         <table class="tabela table table-bordered table-striped table-hover">
                             <thead class="tabela-cabecalho">
@@ -48,20 +67,20 @@
                                 <?php foreach ($unidades as $unidade) : ?>
                                     <tr class="tabela-body-coluna">
                                         <?php if (!empty($unidade['foto_unidade'])) { ?>
-                                            <td><img width="80px" src="controller/uploads/<?php echo $unidade['foto_unidade']; ?>" alt=""></td>
+                                            <td class="text-center"><img width="80px" src="model/uploads/<?php echo $unidade['foto_unidade']; ?>" alt=""></td>
                                         <?php } else { ?>
-                                            <td><img width="100px" src="css/img/avtar.png" alt=""></td>
+                                            <td class="text-center"><img width="100px" src="css/img/avtar.png" alt=""></td>
                                         <?php } ?>
-                                        <td><?php echo $unidade['id'] ?></td>
-                                        <td><?php echo $unidade['nome_unidade'] ?></td>
-                                        <td><?php echo $unidade['endereco_unidade'] ?></td>
-                                        <td><?php echo $unidade['cidade'] ?></td>
-                                        <td><?php echo $unidade['uf'] ?></td>
-                                        <td><?php echo $unidade['contato_unidade'] ?></td>
-                                        <td><?php echo $unidade['hora_abertura'] . " às " . $unidade['hora_fechamento'] ?></td>
-                                        <td class="tabela-body-editar">
-                                            <a href="#" target="_blank" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
-                                            <a href="#" target="_blank" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
+                                        <td class="align-middle text-center"><?php echo $unidade['id'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['nome_unidade'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['endereco_unidade'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['cidade'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['uf'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['contato_unidade'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $unidade['hora_abertura'] . " às " . $unidade['hora_fechamento'] ?></td>
+                                        <td class=" tabela-body-editar text-center align-middle">
+                                            <a href="#" class="tabela-body-coluna__update "><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="unidades.php?id=<?php echo $unidade['id']; ?>&nome=<?php echo $unidade['nome_unidade']; ?>" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
