@@ -29,10 +29,10 @@
                     <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Cadastre, exclua ou altere uma porcao</h2>
                 </div>
                 <div class="div3">
-                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar uma porcao</a></div>
+                    <div class="content-link-cadastro"><a href="criar_porcao.php" class="bn5">Cadastrar uma porcao</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Gostaria de deletar a porcao: <?= $_GET['nome']; ?></h3>
+                            <h3>Deseja deletar a porcao: <?= $_GET['nome']; ?></h3>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
                                 <input type="submit" name="delete" value="Sim">
@@ -57,6 +57,7 @@
                                     <th>Nome</th>
                                     <th>Descrição</th>
                                     <th>Preco</th>
+                                    <th>Data de cadastro</th>
                                     <th>Editar</th>
                                 </tr>
                             </thead>
@@ -72,6 +73,7 @@
                                         <td class="align-middle text-center"><?php echo $porcao['nome_porcao'] ?></td>
                                         <td class="align-middle text-center"><?php echo $porcao['descricao_porcao'] ?></td>
                                         <td class="align-middle text-center"><?php echo "R$ " . $porcao['preco_porcao'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $porcao['data_porcao'] ?></td>
                                         <td  class="tabela-body-editar text-center align-middle">
                                             <a href="#" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
                                             <a href="porcao.php?id=<?php echo $porcao['id']; ?>&nome=<?php echo $porcao['nome_porcao']; ?>" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>

@@ -37,6 +37,7 @@
                 <input type="submit" name="cadastrar">
             </form>
             <?php criarUnidade(); ?>
+            <a href="unidades.php"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
         </section>
     </section>
     <?php } else {

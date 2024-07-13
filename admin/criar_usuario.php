@@ -31,6 +31,7 @@
                 <input type="submit" name="cadastrar">
             </form>
             <?php criarUsuario(); ?>
+            <a href="usuario.php"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
         </section>
     </section>
     <?php } else {

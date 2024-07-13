@@ -15,18 +15,19 @@
   display: flex;
   justify-content: center;
   position: relative;
+
 }
 
 .div2 {
   z-index: 100;
-  width: 84%;
+  width: 90%;
   height: 80px;
   position: relative;
   display: inline-block;
   background: linear-gradient(60deg, #2bcbba, #2bcbba);
   margin: 20px 15px 0 15px;
   border-radius: 3px;
-  box-shadow: 0 12px 20px -20px rgba(17, 80, 73, 0.28), 0 4px 19px 0px rgba(0, 0, 0 , 0.12), 0 7px 8px -5px rgba(17, 80, 73, 0.2);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.14);
 }
 
 .back-hamburguer {
@@ -49,7 +50,7 @@
   border-radius: 10px;
   position: absolute;
   z-index: 1;
-  width: 90%;
+  width: 96%;
   height: auto;
   min-height: 600px;
   background-color: #fff;
@@ -173,9 +174,21 @@
     padding: 20px;
 }
 
-/* .tabela-body-editar {
-    text-align: center;
-} */
+th {
+  font-family: 'Gotham Bold', sans-serif;
+}
+
+.destaque-check-green {
+  color: green;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.destaque-check-red {
+  color: red;
+  font-size: 1.5rem;
+  margin: 0;
+}
 
 .tabela-body-coluna__update {
     text-decoration: none;
@@ -191,3 +204,4 @@
     border: none;
     font-size: 20px;
 }
+

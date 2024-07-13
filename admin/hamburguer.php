@@ -30,10 +30,10 @@
                     <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Cadastre, exclua ou altere um hamburguer</h2>
                 </div>
                 <div class="div3">
-                    <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar hamburguer</a></div>
+                    <div class="content-link-cadastro"><a href="criar_hamburguer.php" class="bn5">Cadastrar hamburguer</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Gostaria de deletar o usuário <?= $_GET['nome']; ?></h3>
+                            <h3>Deseja deletar o hamburguer <?= $_GET['nome']; ?></h3>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
                                 <input type="submit" name="delete" value="Sim">
@@ -57,6 +57,8 @@
                                     <th>Nome</th>
                                     <th>Ingredientes</th>
                                     <th>Preço</th>
+                                    <th>Data de cadastro</th>
+                                    <th>Destaque</th>
                                     <th>Editar</th>
                                 </tr>
                             </thead>
@@ -72,8 +74,10 @@
                                         <td class="align-middle text-center"><?php echo $hamburguer['nome_hamburguer'] ?></td>
                                         <td class="align-middle text-center"><?php echo $hamburguer['descricao_hamburguer'] ?></td>
                                         <td class="align-middle text-center"><?php echo "R$ " . $hamburguer['preco_hamburguer'] ?></td>
+                                        <td class="align-middle text-center"><?php echo $hamburguer['data_hamburguer'] ?></td>
+                                        <td class="align-middle text-center"><?php efeitoDestaque($hamburguer['destaque']) ?></td>
                                         <td class="tabela-body-editar text-center align-middle">
-                                            <a href="#" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="update_hambuguer.php?id=<?php echo $hamburguer['id']; ?>&nome=<?php echo $hamburguer['nome_hamburguer']; ?>" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
                                             <a href="hamburguer.php?id=<?php echo $hamburguer['id']; ?>&nome=<?php echo $hamburguer['nome_hamburguer']; ?>" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>

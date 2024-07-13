@@ -115,8 +115,55 @@ function updateUser($connect) {
     }
 }
 
-function updateProdutos() {
-    
+function updateHamburguer($connect) {
+    if(isset($_POST['atualizar'])) {
+        $erros = [];
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $nome = mysqli_real_escape_string($connect, $_POST['nome']);
+        $descricao = mysqli_real_escape_string($connect, $_POST['descricao']);
+        $preco = mysqli_real_escape_string($connect, $_POST['preco']);
+        $destaque = $_POST['destaque'] ? 1 : 0;
+        $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
+
+        if(!empty($imagem)) {
+            $caminho = "model/uploads/";
+            $imagem = uploadImage($caminho);
+        }
+
+
+        if(!empty($nome_hamburguer)){
+            $erros[] = "Insira um nome para o hamburguer";
+        }
+
+        if(!empty($nome_descricao)){
+            $erros[] = "Insira uma descricao para o hamburguer";
+        }
+
+        if(empty($preco)){
+            $erros[] = "Insira um preço para o hamburguer";
+        }
+
+        if(empty($erros)) {
+            if(!empty($imagem)) {
+                $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', foto_hamburguer = '$imagem', destaque = '$destaque' WHERE id =" . (int)$id;
+            } else {
+                $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', destaque = '$destaque' WHERE id =" . (int)$id;
+            }
+            
+        } else {
+            foreach($erros as $erro) {
+                echo "<p>$erro</p>";
+            }
+        }
+
+        $executar = mysqli_query($connect, $query);
+        
+        if($executar) {
+            echo "Hamburguer atualizado com sucesso";
+        } else {
+            echo "Erro ao atualizar o hamburguer";
+        }
+    }
 }
 
 
@@ -144,6 +191,14 @@ function buscarId($connect, $tabela, $id){
 }
 
 
+function efeitoDestaque($destaque) {
+    if($destaque == "1") {
+
+        echo "<p class='destaque-check-green'><ion-icon name='chevron-down-circle'></ion-icon></p>";
+    } else {
+        echo "<p class='destaque-check-red'><ion-icon name='close-circle'></ion-icon></p>";
+    }     
+}
 
 function logout(){
     session_start();

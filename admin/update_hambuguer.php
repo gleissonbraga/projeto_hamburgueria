@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="css/update.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Área administrativa</title>
 
@@ -25,12 +26,12 @@
 
 <body id="container">
     <?php if (isset($_SESSION['active'])) { ?>
-        <?php if(isset($_GET)) { ?>
-            <?php 
-                $id = $_GET['id'];
-                $usuario = buscarId($connect, 'usuarios', $id);
+        <?php if (isset($_GET)) { ?>
+            <?php
+            $id = $_GET['id'];
+            $hamburguer = buscarId($connect, 'hamburguer', $id);
             ?>
-        <?php }?>
+        <?php } ?>
 
         <section class="menu">
             <?php include "layout/menu.php" ?>
@@ -39,20 +40,26 @@
         <section class="content">
             <div class="div1">
                 <div class="div2">
-                    <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Atualizando o usuário: <?= $_GET['nome'] ?></h2>
+                    <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Atualizando hamburguer: <?= $_GET['nome'] ?></h2>
                 </div>
                 <div class="div3">
                     <form action="" method="post" enctype="multipart/form-data">
-                        <input value="<?= $usuario['id']; ?>" type="hidden" name="id">
-                        <input value="<?= $usuario['nome_user'] ?>" type="text" name="nome" placeholder="Seu Nome">
-                        <input value="<?= $usuario['email'] ?>" type="email" name="email" placeholder="Seu E-mail">
-                        <input type="password" name="senha" placeholder="Crie uma senha">
-                        <input type="password" name="repete_senha" placeholder="Crie uma senha">
+                        <input value="<?= $hamburguer['id']; ?>" type="hidden" name="id">
+                        <input value="<?= $hamburguer['nome_hamburguer'] ?>" type="text" name="nome" placeholder="Nome">
+                        <input value="<?= $hamburguer['descricao_hamburguer'] ?>" type="text" name="descricao" placeholder="Ingredientes">
+                        <input value="<?= $hamburguer['preco_hamburguer'] ?>" type="text" name="preco" placeholder="Ingredientes">
+                        <div class="flipswitch">
+                            <input type="checkbox" name="destaque" class="flipswitch-cb" id="fs" <?= $hamburguer['destaque'] ? 'checked' : '' ?>>
+                            <label class="flipswitch-label" for="fs">
+                                <div class="flipswitch-inner"></div>
+                                <div class="flipswitch-switch"></div>
+                            </label>
+                        </div>
                         <input type="file" name="imagem">
                         <input type="submit" name="atualizar" value="Atualizar">
                     </form>
-                    <?php updateUser($connect);  ?>
-                    <a href="usuario.php"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
+                    <?php updateHamburguer($connect)  ?>
+                    <a href="hamburguer.php"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
                 </div>
             </div>
         </section>

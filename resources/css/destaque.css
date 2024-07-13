@@ -1,92 +1,8 @@
-#destaque {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    max-height: 100vh;
-    background-image: url(img/banner.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    z-index: 1;
-    padding-top: 120px;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid #ffffff;
-
-}
-
-.destaque-title {
-    display: block;
-    width: 100%;
-    height: 50px;
-    color: #fff;
-    text-align: center;
-    font-family: 'Gotham Bold', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 900;
-    /* text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px; */
-    text-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
-
-.destaque-box {
-    /* original */
-    display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    gap: 60px;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-/**************/
-/* Original */
-
-.destaque-burguers {
-    width: 50%;
-    background-color: #00000059;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 1s;
-}
-
-/* .destaque-burguers:hover {
-    transform: scale(1.05);
-} */
-
-
-/*teste*/
-
-/* .destaque-burguers_teste {
-    display: none; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000059;
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
-
-.destaque-burguers:hover .destaque-burguers_teste{
-    display: block;
-} */
-
-
 
 /*******************************************************************/
 /* CODIGO ORIGINAL */
 
-/* 
+
 
 #destaque {
     position: relative;
@@ -121,7 +37,7 @@
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 60px;
+    /* gap: 30px; */
     flex: 1;
     flex-wrap: wrap;
     justify-content: center;
@@ -130,18 +46,55 @@
 
 
 .destaque-burguers {
-    width: 22%;
+    width: 32%;
     height: 460px;
-    background-color: #00000059;
-    border-radius: 10px;
+    background-color: #00000023;
     cursor: pointer;
     transition: transform 1s;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .destaque-burguers:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+    border: 4px solid #fff;
+}
+
+.destaque-burguers img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.destaque-burguers__conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;  
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #00000049;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-right: 50px;
+    transition: transform 0.5s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
 }
 
 
+.destaque-burguers__conteudo p {
+    width: 70%;
+}
 
-*/

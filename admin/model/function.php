@@ -15,6 +15,20 @@ function dadosDasTabelas($table, $ordem) {
     return $users;
 }
 
+function destaque() {
+    $server = "localhost";
+    $user = "root";
+    $pass = "";
+    $dbName = "hamburgueria_bd";
+    $connect = mysqli_connect($server, $user, $pass, $dbName);
+
+    $query = "SELECT * FROM hamburguer WHERE destaque = '1' LIMIT 3";
+
+    $executar = mysqli_query($connect, $query);
+    $destaques = mysqli_fetch_all($executar, MYSQLI_ASSOC);
+    return $destaques;
+}
+
 function criarUsuario() {
     $server = "localhost";
     $user = "root";
@@ -61,6 +75,7 @@ function criarHamburguer() {
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
         $descricao = mysqli_real_escape_string($connect, $_POST['descricao']);
         $preco = mysqli_real_escape_string($connect, $_POST['preco']);
+        $destaque = $_POST['destaque'];
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
         if(!empty($imagem)) {
             $caminho = "model/uploads/";
@@ -68,8 +83,15 @@ function criarHamburguer() {
         }
 
 
+        if($destaque == true) {
+            $destaque = "1";
+        } else {
+            $destaque = "0";
+        }
 
-        $query = "INSERT INTO hamburguer (nome_hamburguer, descricao_hamburguer, preco_hamburguer, foto_hamburguer, data_hamburguer) VALUES ('$nome', '$descricao', '$preco', '$imagem', NOW())";
+
+
+        $query = "INSERT INTO hamburguer (nome_hamburguer, descricao_hamburguer, preco_hamburguer, foto_hamburguer, destaque, data_hamburguer) VALUES ('$nome', '$descricao', '$preco', '$imagem', '$destaque', NOW())";
 
         $insert = mysqli_query($connect, $query);
         if($insert) {

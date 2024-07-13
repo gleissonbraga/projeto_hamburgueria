@@ -33,7 +33,7 @@
                     <div class="content-link-cadastro"><a href="criar_usuario.php" class="bn5">Cadastrar usuário</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Gostaria de deletar o usuário: <?= $_GET['nome']; ?></h3>
+                            <h3>Deseja deletar o usuário: <?= $_GET['nome']; ?></h3>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
                                 <input type="submit" name="delete" value="Sim">

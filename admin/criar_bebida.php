@@ -31,6 +31,7 @@
                 <input type="submit" name="cadastrar">
             </form>
             <?php criarBebida(); ?>
+            <a href="bebida.php"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
         </section>
     </section>
     <?php } else {
