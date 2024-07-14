@@ -22,7 +22,7 @@
 
 <nav class="menu-site">
     <ul class="menu-site-container">
-        <li><a href="http://localhost:8080/texasBurguer/" target="_blank" class="menu-site"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ver Site</a></li>
+        <li><a href="http://localhost:8080/texasBurguer/" class="menu-site"><ion-icon name="arrow-back-circle-sharp"></ion-icon>Ver Site</a></li>
         <li><a href="model/logout.php" class="menu-logout"><ion-icon name="exit-outline"></ion-icon>Sair</a></li>
     </ul>
 </nav>

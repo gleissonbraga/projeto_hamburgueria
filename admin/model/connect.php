@@ -145,9 +145,180 @@ function updateHamburguer($connect) {
 
         if(empty($erros)) {
             if(!empty($imagem)) {
-                $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', foto_hamburguer = '$imagem', destaque = '$destaque' WHERE id =" . (int)$id;
+                 $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', foto_hamburguer = '$imagem', destaque = '$destaque' WHERE id =" . (int)$id;
             } else {
-                $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', destaque = '$destaque' WHERE id =" . (int)$id;
+                 $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', destaque = '$destaque' WHERE id =" . (int)$id;
+            }
+            
+        } else {
+            foreach($erros as $erro) {
+                echo "<p>$erro</p>";
+            }
+        }
+
+        $executar = mysqli_query($connect, $query);
+        
+        if($executar) {
+            echo "Hamburguer atualizado com sucesso";
+        } else {
+            echo "Erro ao atualizar o hamburguer";
+        }
+    }
+}
+
+function updatePorcao($connect) {
+    if(isset($_POST['atualizar'])) {
+        $erros = [];
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $nome = mysqli_real_escape_string($connect, $_POST['nome']);
+        $descricao = mysqli_real_escape_string($connect, $_POST['descricao']);
+        $preco = mysqli_real_escape_string($connect, $_POST['preco']);
+        $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
+
+        if(!empty($imagem)) {
+            $caminho = "model/uploads/";
+            $imagem = uploadImage($caminho);
+        }
+
+
+        if(empty($nome)){
+            $erros[] = "Insira um nome para a porção";
+        }
+
+        if(empty($descricao)){
+            $erros[] = "Insira uma descricao para a porção";
+        }
+
+        if(empty($preco)){
+            $erros[] = "Insira um preço para a porção";
+        }
+
+        if(empty($erros)) {
+            if(!empty($imagem)) {
+                $query = "UPDATE porcao SET nome_porcao = '$nome', descricao_porcao = '$descricao', preco_porcao = '$preco', foto_porcao = '$imagem' WHERE id =" . (int)$id;
+            } else {
+                $query = "UPDATE porcao SET nome_porcao = '$nome', descricao_porcao = '$descricao', preco_porcao = '$preco' WHERE id =" . (int)$id;
+            }
+            
+        } else {
+            foreach($erros as $erro) {
+                echo "<p>$erro</p>";
+            }
+        }
+
+        $executar = mysqli_query($connect, $query);
+        
+        if($executar) {
+            echo "Porção atualizado com sucesso";
+        } else {
+            echo "Erro ao atualizar a Porção";
+        }
+    }
+}
+
+function updateBebida($connect) {
+    if(isset($_POST['atualizar'])) {
+        $erros = [];
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $nome = mysqli_real_escape_string($connect, $_POST['nome']);
+        $descricao = mysqli_real_escape_string($connect, $_POST['descricao']);
+        $preco = mysqli_real_escape_string($connect, $_POST['preco']);
+        $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
+
+        if(!empty($imagem)) {
+            $caminho = "model/uploads/";
+            $imagem = uploadImage($caminho);
+        }
+
+
+        if(empty($nome)){
+            $erros[] = "Insira um nome para a bebida";
+        }
+
+        if(empty($descricao)){
+            $erros[] = "Insira uma descricao para a bebida";
+        }
+
+        if(empty($preco)){
+            $erros[] = "Insira um preço para a bebida";
+        }
+
+        if(empty($erros)) {
+            if(!empty($imagem)) {
+                $query = "UPDATE bebida SET nome_bebida = '$nome', descricao_bebida = '$descricao', preco_bebida = '$preco', foto_bebida = '$imagem' WHERE id =" . (int)$id;
+            } else {
+                $query = "UPDATE bebida SET nome_bebida = '$nome', descricao_bebida = '$descricao', preco_bebida = '$preco' WHERE id =" . (int)$id;
+            }
+            
+        } else {
+            foreach($erros as $erro) {
+                echo "<p>$erro</p>";
+            }
+        }
+
+        $executar = mysqli_query($connect, $query);
+        
+        if($executar) {
+            echo "Porção atualizado com sucesso";
+        } else {
+            echo "Erro ao atualizar a Porção";
+        }
+    }
+}
+
+function updateUnidade($connect) {
+    if(isset($_POST['atualizar'])) {
+        $erros = [];
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $nome = mysqli_real_escape_string($connect, $_POST['nome']);
+        $endereco = mysqli_real_escape_string($connect, $_POST['endereco']);
+        $cidade = mysqli_real_escape_string($connect, $_POST['cidade']);
+        $uf = mysqli_real_escape_string($connect, $_POST['uf']);
+        $contato = mysqli_real_escape_string($connect, $_POST['contato_unidade']);
+        $hora_abertura = mysqli_real_escape_string($connect, $_POST['hora_abertura']);
+        $hora_fechamento = mysqli_real_escape_string($connect, $_POST['hora_fechamento']);
+        $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
+
+        if(!empty($imagem)) {
+            $caminho = "model/uploads/";
+            $imagem = uploadImage($caminho);
+        }
+
+
+        if(empty($nome)){
+            $erros[] = "Insira um nome para a unidadae";
+        }
+
+        if(empty($endereco)){
+            $erros[] = "Insira um endereço";
+        }
+
+        if(empty($cidade)){
+            $erros[] = "Insira a cidade";
+        }
+
+        if(empty($uf)){
+            $erros[] = "Insira uma UF";
+        }
+
+        if(empty($contato)){
+            $erros[] = "Insira um número de telefone";
+        }
+
+        if(empty($hora_abertura)){
+            $erros[] = "Insira uma hora de abertura";
+        }
+
+        if(empty($hora_fechamento)){
+            $erros[] = "Insira uma hora de fechamento";
+        }
+
+
+        if(empty($erros)) {
+            if(!empty($imagem)) {
+                $query = "UPDATE unidades SET nome_unidade = '$nome', endereco_unidade = '$endereco', cidade = '$cidade', uf = '$uf', contato_unidade = '$contato', hora_abertura = '$hora_abertura', hora_fechamento = '$hora_fechamento', foto_unidade = '$imagem' WHERE id =" . (int)$id;
+            } else {
+                $query = "UPDATE unidades SET nome_unidade = '$nome', endereco_unidade = '$endereco', cidade = '$cidade', uf = '$uf', contato_unidade = '$contato', hora_abertura = '$hora_abertura', hora_fechamento = '$hora_fechamento' WHERE id =" . (int)$id;
             }
             
         } else {

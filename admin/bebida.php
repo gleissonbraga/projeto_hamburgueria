@@ -32,11 +32,13 @@
                     <div class="content-link-cadastro"><a href="criar_bebida.php" class="bn5">Cadastrar bebida</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Deseja deletar a bebida: <?= $_GET['nome']; ?></h3>
-                            <form action="" method="post">
-                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
-                                <input type="submit" name="delete" value="Sim">
-                                <input type="submit" name="nao_deletar" value="Não">
+                            <form action="" method="post" class="w-50 rounded p-1 d-flex flex-column justify-content-center align-items-center">
+                                <h3>Deseja deletar a bebida <?= $_GET['nome']; ?>?</h3>
+                                <div>
+                                    <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                    <input type="submit" name="delete" value="Sim" class="btn btn-outline-secondary text-black">
+                                    <input type="submit" name="nao_deletar" value="Não" class="btn btn-outline-secondary text-black">
+                                </div>
                             </form>
                         <?php endif ?>
                         <?php if(isset($_POST['delete'])){ ?>
@@ -74,7 +76,7 @@
                                         <td class="align-middle text-center"><?php echo "R$ " . $bebida['preco_bebida'] ?></td>
                                         <td class="align-middle text-center"><?php echo $bebida['data_bebida'] ?></td>
                                         <td class="tabela-body-editar text-center align-middle">
-                                            <a href="#" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="update_bebida.php?id=<?php echo $bebida['id']; ?>&nome=<?php echo $bebida['nome_bebida']; ?>" class="tabela-body-coluna__update"><ion-icon name="sync-circle"></ion-icon></a>
                                             <a href="bebida.php?id=<?php echo $bebida['id']; ?>&nome=<?php echo $bebida['nome_bebida']; ?>"  class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>

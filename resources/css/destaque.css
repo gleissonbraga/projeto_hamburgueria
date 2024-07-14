@@ -31,6 +31,7 @@
     font-family: var(--font-amatic);
     font-size: 2.5rem;
     font-weight: 900;
+    filter: blur(0);
 }
 
 .destaque-box {
@@ -42,6 +43,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
 }
 
 
@@ -56,11 +58,15 @@
     top: 0;
     left: 0;
     z-index: 0;
+    filter: blur(1px);
+    transition: 0.5s;
 }
 
 .destaque-burguers:hover {
     transform: scale(1.1);
     border: 4px solid #fff;
+    filter: blur(0);
+
 }
 
 .destaque-burguers img {
@@ -80,7 +86,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #00000049;
+    background-color: #0000005f;
     color: white;
     text-align: center;
     padding: 10px;
@@ -91,7 +97,10 @@
     left: 0;
     z-index: 10;
     overflow: hidden;
+    /* transition: 0.5s; */
+    /* filter: blur(1px); */
 }
+
 
 
 .destaque-burguers__conteudo p {

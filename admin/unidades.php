@@ -32,11 +32,13 @@
                     <div class="content-link-cadastro"><a href="criar_unidade.php" class="bn5">Cadastrar unidade</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Deseja deletar a unidade: <?= $_GET['nome']; ?></h3>
-                            <form action="" method="post">
-                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
-                                <input type="submit" name="delete" value="Sim">
-                                <input type="submit" name="nao_deletar" value="Não">
+                            <form action="" method="post" class="w-50 rounded p-1 d-flex flex-column justify-content-center align-items-center">
+                                <h3>Deseja deletar a unidade <?= $_GET['nome']; ?>?</h3>
+                                <div>
+                                    <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                    <input type="submit" name="delete" value="Sim" class="btn btn-outline-secondary text-black">
+                                    <input type="submit" name="nao_deletar" value="Não" class="btn btn-outline-secondary text-black">
+                                </div>
                             </form>
                         <?php endif ?>
 
@@ -81,7 +83,7 @@
                                         <td class="align-middle text-center"><?php echo $unidade['hora_abertura'] . " às " . $unidade['hora_fechamento'] ?></td>
                                         <td class="align-middle text-center"><?php echo $unidade['data_unidade'] ?></td>
                                         <td class=" tabela-body-editar text-center align-middle">
-                                            <a href="#" class="tabela-body-coluna__update "><ion-icon name="sync-circle"></ion-icon></a>
+                                            <a href="update_unidade.php?id=<?php echo $unidade['id']; ?>&nome=<?php echo $unidade['nome_unidade']; ?>" class="tabela-body-coluna__update "><ion-icon name="sync-circle"></ion-icon></a>
                                             <a href="unidades.php?id=<?php echo $unidade['id']; ?>&nome=<?php echo $unidade['nome_unidade']; ?>" class="tabela-body-coluna__delete"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>

@@ -1,5 +1,7 @@
 <?php session_start(); ?>
-<?php require("model/function.php"); ?>
+<?php include("model/function.php"); ?>
+<?php include("model/connect.php"); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,14 +12,22 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/usuario.css">
+    <link rel="stylesheet" href="css/update.css">
     <link rel="stylesheet" href="css/form_cadastro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Área administrativa</title>
+
 </head>
+<?php ?>
 
 <body id="container">
     <?php if (isset($_SESSION['active'])) { ?>
-
+        <?php if (isset($_GET)) { ?>
+            <?php
+            $id = $_GET['id'];
+            $unidade = buscarId($connect, 'unidades', $id);
+            ?>
+        <?php } ?>
 
         <section class="menu">
             <?php include "layout/menu.php" ?>
@@ -26,47 +36,52 @@
         <section class="content">
             <div class="div1">
                 <div class="div2">
-                    <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Cadastro de unidades</h2>
+                    <h2 class="content-title"><ion-icon name="document-text"></ion-icon>Atualizar unidade: <?= $_GET['nome'] ?></h2>
                 </div>
                 <div class="div3">
-                    <form action="" method="post" enctype="multipart/form-data" class="w-75">
+                    <form action="" method="post" enctype="multipart/form-data" class="form_update_unidade w-75">
+                        <input value="<?= $unidade['id']; ?>" type="hidden" name="id">
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">Nome</span>
-                            <input type="text" name="nome" placeholder="Nome da unidade" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['nome_unidade'] ?>" type="text" name="nome" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">Endereço</span>
-                            <input type="text" name="endereco" placeholder="Endereço" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['endereco_unidade'] ?>" type="text" name="endereco" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">Cidade</span>
-                            <input type="text" name="cidade" placeholder="Cidade" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['cidade'] ?>" type="text" name="cidade" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">UF</span>
-                            <input type="text" name="uf" placeholder="Estado" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['uf'] ?>" type="text" name="uf" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">Telefone</span>
-                            <input type="tel" name="telefone" placeholder="Telefone (51) 99999-9999" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['contato_unidade'] ?>" type="text" name="contato_unidade" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <span class="input-group-text" id="basic-addon1">Horário de abertura</span>
-                            <input type="time" name="hora_abertura" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['hora_abertura'] ?>" type="text" name="hora_abertura" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                             <span class="input-group-text" id="basic-addon1">Horário de fechamento</span>
-                            <input type="time" name="hora_fechamento" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
+                            <input value="<?= $unidade['hora_fechamento'] ?>" type="text" name="hora_fechamento" class="form-control" aria-label="Sizing example input" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group input-group-sm mb-3 w-50">
                             <input type="file" name="imagem" class="form-control">
                             <span class="input-group-text">Upload</span>
                         </div>
-                        <input type="submit" name="cadastrar" class="btn btn-outline-secondary" value="Cadastrar">
+                        <input type="submit" name="atualizar" class="btn btn-outline-secondary" value="Atualizar">
                     </form>
-                    <?php criarUnidade(); ?>
-                    <a href="unidades.php" class="bn5"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
-                </div>
+                <?php updateunidade($connect)  ?>
+                <a href="unidades.php" class="bn5"><ion-icon name="arrow-undo"></ion-icon>Voltar</a>
+            </div>
             </div>
         </section>
+
+
+
+
     <?php } else {
         header("location: index.php");
     } ?>

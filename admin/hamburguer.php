@@ -33,11 +33,13 @@
                     <div class="content-link-cadastro"><a href="criar_hamburguer.php" class="bn5">Cadastrar hamburguer</a></div>
                     <div class="delete-usuario">
                         <?php if(isset($_GET['id'])):?>
-                            <h3>Deseja deletar o hamburguer <?= $_GET['nome']; ?></h3>
-                            <form action="" method="post">
-                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
-                                <input type="submit" name="delete" value="Sim">
-                                <input type="submit" name="nao_deletar" value="Não">
+                            <form action="" method="post" class=" w-50 rounded p-1 d-flex flex-column justify-content-center align-items-center">
+                                <h3>Deseja deletar o hamburguer <?= $_GET['nome']; ?>?</h3>
+                                <div>
+                                    <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                    <input type="submit" name="delete" value="Sim" class="btn btn-outline-secondary text-black">
+                                    <input type="submit" name="nao_deletar" value="Não" class="btn btn-outline-secondary text-black">
+                                </div>
                             </form>
                         <?php endif ?>
                         <?php if(isset($_POST['delete'])){ ?>

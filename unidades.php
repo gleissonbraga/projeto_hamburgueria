@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require("admin/model/function.php");?>
 <?php require("admin/model/connect.php");?>
 <?php $unidades = dadosDasTabelas("unidades", "nome_unidade"); ?> 

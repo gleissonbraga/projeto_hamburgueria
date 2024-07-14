@@ -80,6 +80,8 @@ function criarHamburguer() {
         if(!empty($imagem)) {
             $caminho = "model/uploads/";
             $imagem = uploadImage($caminho);
+        } else {
+            $imagem = null;
         }
 
 
