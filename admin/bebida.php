@@ -68,7 +68,7 @@
                                         <?php if (!empty($bebida['foto_bebida'])) { ?>
                                             <td class="text-center"><img width="80px" src="model/uploads/<?php echo $bebida['foto_bebida']; ?>" alt=""></td>
                                         <?php } else { ?>
-                                            <td class="text-center"><img width="px" src="css/img/avtar.png" alt=""></td>
+                                            <td class="text-center"><img width="80px" src="css/img/avtar.png" alt=""></td>
                                         <?php } ?>
                                         <td class="align-middle text-center"><?php echo $bebida['id'] ?></td>
                                         <td class="align-middle text-center"><?php echo $bebida['nome_bebida'] ?></td>

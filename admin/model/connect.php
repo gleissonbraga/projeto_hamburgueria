@@ -37,9 +37,13 @@ function delete($connect, $tabela, $id){
         $query = "DELETE FROM $tabela where id =" . (int)$id;
         $delete = mysqli_query($connect, $query);
         if($delete) {
-            echo "Usuário excluido com sucesso!";
+            echo "<div class='w-50'>
+                    <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Deletado com sucesso</p>
+                </div>";
         } else {
-            echo "Usuário não existe!";
+            echo "<div class='w-50'>
+                    <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao excluir</p>
+                </div>";
         }
     }
 }
@@ -101,9 +105,13 @@ function updateUser($connect) {
             $executar = mysqli_query($connect, $query);
 
             if($executar) {
-                echo "Usuário atualizado com sucesso.";
+                echo "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Usuário atualizado com sucesso</p>
+                    </div>";
             } else {
-                echo "Erro ao atualizar usuário";
+                echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao atualizar usuário</p>
+                    </div>";
             }
 
         } else {
@@ -122,7 +130,7 @@ function updateHamburguer($connect) {
         $nome = mysqli_real_escape_string($connect, $_POST['nome']);
         $descricao = mysqli_real_escape_string($connect, $_POST['descricao']);
         $preco = mysqli_real_escape_string($connect, $_POST['preco']);
-        $destaque = $_POST['destaque'] ? 1 : 0;
+        $destaque = !empty($_POST['destaque']) ? 1 : 0;
         $imagem = !empty($_FILES['imagem']['name']) ? $_FILES['imagem']['name'] : "";
 
         if(!empty($imagem)) {
@@ -131,11 +139,11 @@ function updateHamburguer($connect) {
         }
 
 
-        if(!empty($nome_hamburguer)){
+        if(empty($nome)){
             $erros[] = "Insira um nome para o hamburguer";
         }
 
-        if(!empty($nome_descricao)){
+        if(empty($descricao)){
             $erros[] = "Insira uma descricao para o hamburguer";
         }
 
@@ -149,19 +157,22 @@ function updateHamburguer($connect) {
             } else {
                  $query = "UPDATE hamburguer SET nome_hamburguer = '$nome', descricao_hamburguer = '$descricao', preco_hamburguer = '$preco', destaque = '$destaque' WHERE id =" . (int)$id;
             }
-            
+
+            $executar = mysqli_query($connect, $query);
+        
+            if($executar) {
+                echo    "<div class='w-50'>
+                            <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Hamburguer atualizado com sucesso</p>
+                        </div>";
+            } else {
+                echo    "<div class='w-50'>
+                            <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao atualizar o hamburguer</p>
+                        </div>";
+            }
         } else {
             foreach($erros as $erro) {
                 echo "<p>$erro</p>";
             }
-        }
-
-        $executar = mysqli_query($connect, $query);
-        
-        if($executar) {
-            echo "Hamburguer atualizado com sucesso";
-        } else {
-            echo "Erro ao atualizar o hamburguer";
         }
     }
 }
@@ -200,18 +211,22 @@ function updatePorcao($connect) {
                 $query = "UPDATE porcao SET nome_porcao = '$nome', descricao_porcao = '$descricao', preco_porcao = '$preco' WHERE id =" . (int)$id;
             }
             
+            $executar = mysqli_query($connect, $query);
+            
+            if($executar) {
+                echo    "<div class='w-50'>
+                            <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Porção atualizada com sucesso</p>
+                        </div>";
+            } else {
+                echo    "<div class='w-50'>
+                            <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao atualizar a porção</p>
+                        </div>";
+            }
+            
         } else {
             foreach($erros as $erro) {
                 echo "<p>$erro</p>";
             }
-        }
-
-        $executar = mysqli_query($connect, $query);
-        
-        if($executar) {
-            echo "Porção atualizado com sucesso";
-        } else {
-            echo "Erro ao atualizar a Porção";
         }
     }
 }
@@ -249,6 +264,18 @@ function updateBebida($connect) {
             } else {
                 $query = "UPDATE bebida SET nome_bebida = '$nome', descricao_bebida = '$descricao', preco_bebida = '$preco' WHERE id =" . (int)$id;
             }
+
+            $executar = mysqli_query($connect, $query);
+        
+            if($executar) {
+                echo    "<div class='w-50'>
+                            <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Bebida atualizada com sucesso</p>
+                        </div>";
+            } else {
+                echo    "<div class='w-50'>
+                            <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao atualizar a bebida</p>
+                        </div>";
+            }
             
         } else {
             foreach($erros as $erro) {
@@ -256,13 +283,6 @@ function updateBebida($connect) {
             }
         }
 
-        $executar = mysqli_query($connect, $query);
-        
-        if($executar) {
-            echo "Porção atualizado com sucesso";
-        } else {
-            echo "Erro ao atualizar a Porção";
-        }
     }
 }
 
@@ -320,6 +340,18 @@ function updateUnidade($connect) {
             } else {
                 $query = "UPDATE unidades SET nome_unidade = '$nome', endereco_unidade = '$endereco', cidade = '$cidade', uf = '$uf', contato_unidade = '$contato', hora_abertura = '$hora_abertura', hora_fechamento = '$hora_fechamento' WHERE id =" . (int)$id;
             }
+
+            $executar = mysqli_query($connect, $query);
+        
+            if($executar) {
+                echo    "<div class='w-50'>
+                            <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Unidade atualizada com sucesso</p>
+                        </div>";
+            } else {
+                echo    "<div class='w-50'>
+                            <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao atualizar a unidade</p>
+                        </div>";
+            }
             
         } else {
             foreach($erros as $erro) {
@@ -327,13 +359,6 @@ function updateUnidade($connect) {
             }
         }
 
-        $executar = mysqli_query($connect, $query);
-        
-        if($executar) {
-            echo "Hamburguer atualizado com sucesso";
-        } else {
-            echo "Erro ao atualizar o hamburguer";
-        }
     }
 }
 
@@ -364,7 +389,6 @@ function buscarId($connect, $tabela, $id){
 
 function efeitoDestaque($destaque) {
     if($destaque == "1") {
-
         echo "<p class='destaque-check-green'><ion-icon name='chevron-down-circle'></ion-icon></p>";
     } else {
         echo "<p class='destaque-check-red'><ion-icon name='close-circle'></ion-icon></p>";

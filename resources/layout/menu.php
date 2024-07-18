@@ -7,7 +7,7 @@
         </a>
     </li>
     <li>
-        <a href="#cardapio">
+        <a href="http://localhost:8080/texasBurguer/index.php#cardapio">
             <ion-icon name="reader-outline"></ion-icon>
             Cardápio
         </a>

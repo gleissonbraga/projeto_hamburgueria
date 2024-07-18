@@ -53,10 +53,13 @@ function criarUsuario() {
 
         $insert = mysqli_query($connect, $query);
         if($insert) {
-            header("Location: criar_usuario.php");
-            echo "Usuário cadastrado com sucesso";
+            echo    "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Usuário cadastrado com sucesso</p>
+                    </div>";
         } else {
-            echo "Erro ao cadastrar o usuário";
+            echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao cadastrar usuário</p>
+                    </div>";
         }
     }
 }
@@ -97,10 +100,13 @@ function criarHamburguer() {
 
         $insert = mysqli_query($connect, $query);
         if($insert) {
-            header("Location: criar_hamburguer.php");
-            echo "Usuário cadastrado com sucesso";
+            echo "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Hamburguer cadastrado com sucesso</p>
+                    </div>";
         } else {
-            echo "Erro ao cadastrar o usuário";
+            echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao cadastrar hamburguer</p>
+                    </div>";
         }
     }
 }
@@ -129,10 +135,13 @@ function criarPorcao() {
 
         $insert = mysqli_query($connect, $query);
         if($insert) {
-            header("Location: criar_usuario.php");
-            echo "Usuário cadastrado com sucesso";
+            "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Porção cadastrada com sucesso</p>
+                    </div>";
         } else {
-            echo "Erro ao cadastrar o usuário";
+            echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao cadastrar porção</p>
+                    </div>";
         }
     }
 }
@@ -162,10 +171,13 @@ function criarBebida() {
 
         $insert = mysqli_query($connect, $query);
         if($insert) {
-            header("Location: criar_usuario.php");
-            echo "Usuário cadastrado com sucesso";
+            echo "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Bebida cadastrada com sucesso</p>
+                    </div>";
         } else {
-            echo "Erro ao cadastrar o usuário";
+            echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao cadastrar bebida</p>
+                    </div>";
         }
     }
 }
@@ -199,10 +211,13 @@ function criarUnidade() {
 
         $insert = mysqli_query($connect, $query);
         if($insert) {
-            header("Location: criar_usuario.php");
-            echo "Usuário cadastrado com sucesso";
+            echo "<div class='w-50'>
+                        <p class='bg-success text-white rounded w-50 p-2 mt-1 text-center'>Unidade cadastrada com sucesso</p>
+                    </div>";
         } else {
-            echo "Erro ao cadastrar o usuário";
+            echo "<div class='w-50'>
+                        <p class='bg-danger text-white rounded w-50 p-2 mt-1 text-center'>Erro ao cadastrar unidade</p>
+                    </div>";
         }
     }
 }

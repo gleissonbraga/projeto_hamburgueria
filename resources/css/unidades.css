@@ -10,12 +10,11 @@ body {
     width: 100%;
     height: 150px;
     max-height: 100vh;
-    background-image: url(img/back5.jpg);
+    /* background-image: url(img/back5.jpg);
     background-position: center;
-    background-repeat: repeat;
-    opacity: 0.9;
-
-
+    background-repeat: repeat; */
+    /* opacity: 0.9; */
+    background-color: #00000090;
     z-index: 1;
     padding-top: 120px;
     display: flex;
@@ -144,9 +143,10 @@ body {
     height: 80px;
     max-height: 100vh;
     z-index: 100;
-    background-image: url(img/back5.jpg);
+    /* background-image: url(img/back5.jpg);
     background-position: center;
     background-repeat: repeat;
-    opacity: 0.9;
+    opacity: 0.9; */
+    background-color: #00000090;
     border-radius: 80% 80% 0% 0% / 30% 30% 0% 0%;
 }

@@ -47,6 +47,7 @@
                             <input type="file" name="imagem" class="form-control">
                             <span class="input-group-text">Upload</span>
                         </div>
+                        <span class="input-group-text w-25 mb-1">Destacar produto</span>
                         <div class="flipswitch mb-3">
                             <input type="checkbox" name="destaque" class="flipswitch-cb" id="fs" checked>
                             <label class="flipswitch-label" for="fs">
